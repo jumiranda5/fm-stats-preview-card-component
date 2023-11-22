@@ -25,7 +25,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [todo](https://your-solution-url.com)
-- Live Site URL: [todo](https://your-live-site-url.com)
+- Live Site URL: [Github Pages - fm-stats-preview-card-component](https://jumiranda5.github.io/fm-stats-preview-card-component/)
 
 
 ## Author
