@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [todo](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/stats-preview-card-with-grid-and-flexbox-SYq5W30hCi)
 - Live Site URL: [Github Pages - fm-stats-preview-card-component](https://jumiranda5.github.io/fm-stats-preview-card-component/)
 
 
