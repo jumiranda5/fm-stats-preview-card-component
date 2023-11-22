@@ -1,5 +1,297 @@
+/* ---------------------------------------------------------
+    RESET 
+    From: https://andy-bell.co.uk/a-more-modern-css-reset/
+    (I added margin: 0 and padding: 0 to *)
+----------------------------------------------------------- */
 
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* Feel free to remove these styles or customise in your own stylesheet 👍*/
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings 
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}*/
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* ---------------------------------------------------------
+    BASE
+----------------------------------------------------------- */
+
+@font-face {
+    font-family: Inter;
+    src: url(./fonts/Inter-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: LexendDeca;
+    src: url(./fonts/LexendDeca-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url(./fonts/Inter-Bold.ttf);
+    font-weight: 700;
+}
+
+:root {
+    /* color variables */
+    --main-bg-color:  hsl(233, 47%, 7%);
+    --card-bg-color: hsl(244, 38%, 16%);
+    --accent-color:  hsl(277, 64%, 61%);
+    --main-text-color: hsla(0, 0%, 100%, 0.75);
+    --secondary-text-color: hsla(0, 0%, 100%, 0.6);
+    --heading-color: hsl(0, 0%, 100%);
+}
+
+body {
+    position: relative;
+    background: var(--main-bg-color);
+    font-family: Inter, sans-serif;
+    color: var(--main-text-color);
+    letter-spacing: 0.02em;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+/* ---------------------------------------------------------
+    COMPONENTS
+----------------------------------------------------------- */
+
+/* Card container */
+
+.card {
+    width: 88%;
+    max-width: 25rem;
+    margin: 5rem 0;
+    overflow: hidden;
+    border-radius: .5rem;
+    background-color: var(--card-bg-color);
+    box-shadow: 0 .5rem .75rem rgba(0, 0, 0, .1);
+}
+
+/* Image */
+
+.card-image-container {
+    width: 100%;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.card-image {
+    opacity: 70%;
+    border: none;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: multiply;
+}
+
+/* Text content */
+
+.card-content-container {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 1rem;
+    padding: 1.75rem;
+    text-align: center;
+}
+
+.content-title,
+.stats-number {
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.content-title {
+    margin-top: .75rem;
+    font-size: 1.75rem;
+    line-height: 1.2;
+}
+
+.content-title span { 
+    color: var(--accent-color); 
+}
+
+.content-description {
+    font-size: .9375rem;
+    line-height: 1.7;
+}
+
+/* List */
+
+.content-stats-list { 
+    width: 100%;
+    margin-top: .5rem; 
+}
+
+.content-stats-list li { 
+    padding: .75rem 0; 
+}
+
+.content-stats-list p {
+    padding: .25rem 0 0; 
+    font-family: LexendDeca, sans-serif;
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.stats-number {
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+/* Footer */
+
+.attribution { 
+    padding: 1rem 0;
+    font-size: 0.6875rem; 
+    text-align: center; 
+}
+
+.attribution a { color: hsl(228, 62%, 75%); }
+
+@media (min-width: 960px) {
+
+    .card {
+        height: 28rem;
+        max-width: 69.25rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: column;
+        gap: 1.5rem;
+    }
+
+    .card-content-container { grid-column-start: 1; }
+    .card-image-container { grid-column-start: 2; }
+
+    .card-image,
+    .card-image img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-image img { 
+        object-fit: cover; 
+    }
+
+    .card-content-container {
+        gap: 1.5rem;
+        height: 100%;
+        padding: 4rem 4.5rem;
+        text-align: start;
+    }
+
+    .content-title { 
+        margin-top: .5rem;
+        font-size: 2.25rem;
+        line-height: 1.25;
+    }
+
+    .content-stats-list {
+        margin-top: auto; 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .content-stats-list li { 
+        padding: 0; 
+    }
+
+    .stats-number {
+        font-size: 1.375rem;
+    }
+
+}
